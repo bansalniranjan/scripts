@@ -1,0 +1,40 @@
+1.1 ADVANCED SED
+Name	Command
+Update with auto backup	sed -i.bak 's/localhost/myhost/g' my-file, ls my-file*, link: my-file
+Use variables in sed	newip=’127.0.1.1′; sed -i "s/127.0.0.1/$newip/g" my-file link: unix.com
+Only replace the first match	sed -i '0,/localhost/{s/localhost/newstring/}' my-file link: stackoverflow
+Replace multiple lines	sed -i ':a;N;$!ba;s/Host.*localhost//g' my-file link: stackexchange
+Add content after nth line	sed -n -i 'p;3a "new string"' my-file, cat -n my-file link: unix.com
+Insert a line of text before a line	sed -i '/KUBELET_NETWORK_ARGS/i newline' my-file
+1.2 GNUS SED – DELETE
+Name	Command
+Replace string	sed -i 's/127.0.0.1/127.0.1.1/g' my-file link: my-file
+Use a different seperator	sed -i 's#127.0.0.1#127.0.1.1#g' my-file
+Use a different seperator	sed -i 's#https://www.test.com/test#http://www.try.com#g' my-file
+Delete pattern	sed '/KUBELET_NETWORK_ARGS.*/d' my-file
+Delete matched lines	sed -i 's/.*KUBELET_NETWORK_ARGS.*//g' my-file
+Delete whitespace	sed -i 's/ //g' my-file
+Delete empty lines	sed -i '/^$/d' my-file
+Delete 2nd to 4th lines	sed -i '2,4d' my-file
+Delete leading whitespace	sed -i 's/^[ \t]*//' my-file
+Delete trailing whitespace	sed -i 's/[ \t]*$//' my-file
+1.3 GNUS SED – INSERTION
+Name	Command
+Insert string to the begining of lines	sed -i 's/^/head /g' my-file
+Insert string to the end of lines	sed -i 's/$/ tail/g' my-file
+Add content after nth line	sed -n -i 'p;3a "new string"' my-file, cat -n my-file link: unix.com
+Insert a line of text before a line	sed -i '/KUBELET_NETWORK_ARGS/i newline' my-file
+1.4 GNUS SED – REVIEW
+Name	Command
+Print lines from 2nd to 6th	sed -n '2,6p' my-file
+1.5 FREEBSD SED ON MAC
+Name	Command
+In-place sed	sed -i "" 's/127.0.0.1/127.0.1.1/g' my-file, link:stackoverflow
+1.6 MORE RESOURCES
+License: Code is licensed under MIT License.
+
+http://sed.sourceforge.net/sed1line.txt
+
+https://thornelabs.net/2016/02/01/sed-commands-cheat-sheet.html
+
+http://www.grymoire.com/Unix/Sed.html
